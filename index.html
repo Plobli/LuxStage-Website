@@ -6,7 +6,7 @@
   <title>LuxStage – Beleuchtungsmanagement für Theater</title>
   <meta name="description" content="LuxStage ist die professionelle App für Beleuchtungsplanung und Kanalverwaltung im Theater. Native iOS-App und Web-App, EOS-Import, PDF-Export und Echtzeit-Sync." />
   <link rel="icon" href="logo.png" />
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="tailwind.js"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -15,15 +15,12 @@
             accent: '#e35d3c',
           },
           fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
+            sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'system-ui', 'sans-serif'],
           },
         }
       }
     }
   </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&display=swap" rel="stylesheet" />
   <style>
     .logo-glow { text-shadow: 0 0 60px rgba(227, 93, 60, 0.35); }
     .grid-bg {
