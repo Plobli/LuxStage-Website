@@ -1,0 +1,702 @@
+<!doctype html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LuxStage – Beleuchtungsmanagement für Theater</title>
+  <meta name="description" content="LuxStage ist die professionelle App für Beleuchtungsplanung und Kanalverwaltung im Theater. Native iOS-App und Web-App, EOS-Import, PDF-Export und Echtzeit-Sync." />
+  <link rel="icon" href="logo.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            accent: '#e35d3c',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&display=swap" rel="stylesheet" />
+  <style>
+    .logo-glow { text-shadow: 0 0 60px rgba(227, 93, 60, 0.35); }
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+    /* iPhone frame */
+    .iphone-frame {
+      background: #1c1c1e;
+      border-radius: 44px;
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.12),
+        0 0 0 3px #1c1c1e,
+        0 0 0 4px rgba(255,255,255,0.08),
+        0 40px 80px rgba(0,0,0,0.6);
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+    }
+    .float { animation: float 4s ease-in-out infinite; }
+    .float-delay { animation: float 4s ease-in-out 1s infinite; }
+  </style>
+</head>
+<body class="bg-gray-950 text-white font-sans antialiased">
+
+  <!-- NAV -->
+  <header class="fixed top-0 inset-x-0 z-50 border-b border-white/5 bg-gray-950/80 backdrop-blur-md">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8 flex items-center justify-between h-16">
+      <div class="flex items-center gap-2.5">
+        <img src="logo.png" alt="LuxStage" class="size-8 rounded-lg" />
+        <span class="text-base font-semibold">LuxStage</span>
+      </div>
+      <nav class="hidden md:flex items-center gap-8 text-sm text-gray-400">
+        <a href="#apps" class="hover:text-white transition-colors">Apps</a>
+        <a href="#features" class="hover:text-white transition-colors">Features</a>
+        <a href="#workflow" class="hover:text-white transition-colors">Workflow</a>
+        <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+      </nav>
+      <a href="#kontakt" class="hidden md:inline-flex items-center rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white hover:bg-accent/90 transition-colors">
+        Kontakt
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden pt-32 pb-16 sm:pt-44 sm:pb-24 grid-bg">
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+      <div class="w-[800px] h-[500px] rounded-full bg-accent/8 blur-3xl"></div>
+    </div>
+
+    <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium text-gray-400 mb-8">
+          <span class="size-1.5 rounded-full bg-accent inline-block"></span>
+          Für professionelle Lichttechnik im Theater
+        </div>
+
+        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight text-white text-balance leading-[1.1] logo-glow">
+          Dein Kanalplan.<br/>
+          <span class="text-accent">Immer zur Hand.</span>
+        </h1>
+
+        <p class="mt-6 text-lg text-gray-400 text-balance max-w-xl">
+          LuxStage ist die App für Beleuchtungsplanung im Theater — als native iOS-App und als Web-App. Kanalverwaltung, EOS-Import, PDF-Export und Echtzeit-Sync, selbst gehostet in deinem Theaternetz.
+        </p>
+
+        <div class="mt-10 flex flex-wrap items-center gap-4">
+          <a href="#apps" class="inline-flex items-center rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-white hover:bg-accent/90 transition-colors shadow-lg shadow-accent/20">
+            Apps entdecken
+            <svg class="ml-2 size-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" /></svg>
+          </a>
+          <a href="#features" class="inline-flex items-center rounded-lg border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10 transition-colors">
+            Features ansehen
+          </a>
+        </div>
+
+        <!-- Platform badges -->
+        <div class="mt-10 flex items-center gap-4">
+          <div class="flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-2">
+            <svg class="size-4 text-gray-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.25 2A2.25 2.25 0 0 0 2 4.25v11.5A2.25 2.25 0 0 0 4.25 18h11.5A2.25 2.25 0 0 0 18 15.75V4.25A2.25 2.25 0 0 0 15.75 2H4.25Zm4.03 6.28a.75.75 0 0 0-1.06-1.06L4.97 9.47a.75.75 0 0 0 0 1.06l2.25 2.25a.75.75 0 0 0 1.06-1.06L6.56 10l1.72-1.72Zm4.5-1.06a.75.75 0 1 0-1.06 1.06L13.44 10l-1.72 1.72a.75.75 0 1 0 1.06 1.06l2.25-2.25a.75.75 0 0 0 0-1.06l-2.25-2.25Z" clip-rule="evenodd"/></svg>
+            <span class="text-xs font-medium text-gray-300">Web-App</span>
+          </div>
+          <div class="flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-2">
+            <svg class="size-4 text-gray-400" viewBox="0 0 20 20" fill="currentColor"><path d="M8 16.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"/><path fill-rule="evenodd" d="M4 4a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V4Zm4-1.5v.75c0 .414.336.75.75.75h2.5a.75.75 0 0 0 .75-.75V2.5h1A1.5 1.5 0 0 1 14.5 4v12a1.5 1.5 0 0 1-1.5 1.5H7A1.5 1.5 0 0 1 5.5 16V4A1.5 1.5 0 0 1 7 2.5h1Z" clip-rule="evenodd"/></svg>
+            <span class="text-xs font-medium text-gray-300">Native iOS</span>
+          </div>
+          <div class="flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-2">
+            <svg class="size-4 text-gray-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M1 6.25A2.25 2.25 0 0 1 3.25 4h13.5A2.25 2.25 0 0 1 19 6.25v7.5A2.25 2.25 0 0 1 16.75 16H3.25A2.25 2.25 0 0 1 1 13.75v-7.5Zm2.25-.75a.75.75 0 0 0-.75.75v7.5c0 .414.336.75.75.75h13.5a.75.75 0 0 0 .75-.75v-7.5a.75.75 0 0 0-.75-.75H3.25Z" clip-rule="evenodd"/><path d="M6.25 18.25a.75.75 0 0 0 0 1.5h7.5a.75.75 0 0 0 0-1.5h-7.5ZM8.5 17.5a.75.75 0 0 1 .75-.75h1.5a.75.75 0 0 1 0 1.5h-1.5a.75.75 0 0 1-.75-.75Z"/></svg>
+            <span class="text-xs font-medium text-gray-300">Self-hosted</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- iOS App Mockup (rechts, floating) -->
+      <div class="hidden lg:block absolute right-8 top-1/2 -translate-y-1/2 pointer-events-none select-none">
+        <div class="relative">
+          <!-- iPhone -->
+          <div class="float iphone-frame w-[220px] overflow-hidden" style="height:460px;">
+            <!-- Notch -->
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-7 bg-gray-950 rounded-b-2xl z-10 flex items-end justify-center pb-1">
+              <div class="w-14 h-1 rounded-full bg-black/60"></div>
+            </div>
+            <!-- Screen content -->
+            <div class="h-full bg-gray-950 pt-8 flex flex-col">
+              <!-- Status bar -->
+              <div class="flex justify-between px-5 pt-1 pb-2">
+                <span class="text-[9px] text-white font-semibold">9:41</span>
+                <div class="flex items-center gap-1">
+                  <svg class="size-2.5 text-white" viewBox="0 0 20 20" fill="currentColor"><path d="M1 8.25a1.25 1.25 0 1 1 2.5 0v7.5a1.25 1.25 0 1 1-2.5 0v-7.5ZM5.875 5.625a1.25 1.25 0 1 1 2.5 0v10.125a1.25 1.25 0 1 1-2.5 0V5.625ZM10.75 3a1.25 1.25 0 1 1 2.5 0v12.75a1.25 1.25 0 1 1-2.5 0V3ZM15.625.5a1.25 1.25 0 1 1 2.5 0v15.25a1.25 1.25 0 1 1-2.5 0V.5Z"/></svg>
+                  <div class="flex gap-0.5 items-center">
+                    <div class="w-4 h-2 rounded-sm border border-white/60 flex items-center p-px"><div class="h-full w-3/4 bg-white rounded-xs"></div></div>
+                  </div>
+                </div>
+              </div>
+              <!-- App header -->
+              <div class="px-4 pb-3 border-b border-white/10 flex items-center gap-2">
+                <img src="logo.png" alt="" class="size-5 rounded-md" />
+                <div>
+                  <p class="text-[10px] text-gray-500 leading-none mb-0.5">NORDSTADT-THEATER</p>
+                  <p class="text-[11px] font-semibold text-white leading-none">Frühling 2026</p>
+                </div>
+              </div>
+              <!-- Channel list -->
+              <div class="flex-1 overflow-hidden divide-y divide-white/5">
+                <div class="px-4 py-2.5 flex items-center gap-3">
+                  <span class="text-accent font-bold text-base w-6 text-right shrink-0">1</span>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-[11px] text-white truncate">PAR 64</p>
+                    <p class="text-[9px] text-gray-500 truncate">Zuschauer Tür links</p>
+                  </div>
+                  <span class="text-[9px] px-1.5 py-0.5 rounded-full bg-white/10 text-gray-400 shrink-0">R02</span>
+                </div>
+                <div class="px-4 py-2.5 flex items-center gap-3">
+                  <span class="text-accent font-bold text-base w-6 text-right shrink-0">2</span>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-[11px] text-white truncate">Profiler 1,2 kW</p>
+                    <p class="text-[9px] text-gray-500 truncate">Verfolger Mitte</p>
+                  </div>
+                  <span class="text-[9px] px-1.5 py-0.5 rounded-full bg-white/10 text-gray-400 shrink-0">L201</span>
+                </div>
+                <div class="px-4 py-2.5 flex items-center gap-3">
+                  <span class="text-white/30 font-bold text-base w-6 text-right shrink-0">3</span>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-[11px] text-gray-500 truncate">SL 1,2 kW</p>
+                    <p class="text-[9px] text-gray-600 truncate">—</p>
+                  </div>
+                </div>
+                <div class="px-4 py-2.5 flex items-center gap-3">
+                  <span class="text-accent font-bold text-base w-6 text-right shrink-0">4</span>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-[11px] text-white truncate">Profiler 1,2 kW</p>
+                    <p class="text-[9px] text-gray-500 truncate">Front rechts Opera</p>
+                  </div>
+                  <span class="text-[9px] px-1.5 py-0.5 rounded-full bg-white/10 text-gray-400 shrink-0">R32</span>
+                </div>
+                <div class="px-4 py-2.5 flex items-center gap-3">
+                  <span class="text-accent font-bold text-base w-6 text-right shrink-0">5</span>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-[11px] text-white truncate">PAR 64</p>
+                    <p class="text-[9px] text-gray-500 truncate">SL Gasse</p>
+                  </div>
+                  <span class="text-[9px] px-1.5 py-0.5 rounded-full bg-white/10 text-gray-400 shrink-0">L179</span>
+                </div>
+                <div class="px-4 py-2.5 flex items-center gap-3">
+                  <span class="text-accent font-bold text-base w-6 text-right shrink-0">6</span>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-[11px] text-white truncate">PAR 64</p>
+                    <p class="text-[9px] text-gray-500 truncate">SR Gasse</p>
+                  </div>
+                  <span class="text-[9px] px-1.5 py-0.5 rounded-full bg-white/10 text-gray-400 shrink-0">L179</span>
+                </div>
+              </div>
+              <!-- Tab Bar -->
+              <div class="border-t border-white/10 px-4 py-2 flex justify-around items-center">
+                <div class="flex flex-col items-center gap-0.5">
+                  <svg class="size-4 text-accent" viewBox="0 0 20 20" fill="currentColor"><path d="M2 4.75A.75.75 0 0 1 2.75 4h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 4.75Zm0 5A.75.75 0 0 1 2.75 9h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 9.75Zm0 5a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z"/></svg>
+                  <span class="text-[8px] text-accent">Kanäle</span>
+                </div>
+                <div class="flex flex-col items-center gap-0.5">
+                  <svg class="size-4 text-gray-600" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M1 5.25A2.25 2.25 0 0 1 3.25 3h13.5A2.25 2.25 0 0 1 19 5.25v9.5A2.25 2.25 0 0 1 16.75 17H3.25A2.25 2.25 0 0 1 1 14.75v-9.5Zm2.25-.75a.75.75 0 0 0-.75.75v.616l8.25 4.125 8.25-4.125V5.25a.75.75 0 0 0-.75-.75H3.25Zm14.25 3.397-7.5 3.75a.75.75 0 0 1-.671 0l-7.5-3.75V14.75c0 .414.336.75.75.75h13.5a.75.75 0 0 0 .75-.75V7.897Z" clip-rule="evenodd"/></svg>
+                  <span class="text-[8px] text-gray-600">Info</span>
+                </div>
+                <div class="flex flex-col items-center gap-0.5">
+                  <svg class="size-4 text-gray-600" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.84 1.804A1 1 0 0 1 8.82 1h2.36a1 1 0 0 1 .98.804l.331 1.652a6.993 6.993 0 0 1 1.929 1.115l1.598-.54a1 1 0 0 1 1.186.447l1.18 2.044a1 1 0 0 1-.205 1.251l-1.267 1.113a7.047 7.047 0 0 1 0 2.228l1.267 1.113a1 1 0 0 1 .206 1.25l-1.18 2.045a1 1 0 0 1-1.187.447l-1.598-.54a6.993 6.993 0 0 1-1.929 1.115l-.33 1.652a1 1 0 0 1-.98.804H8.82a1 1 0 0 1-.98-.804l-.331-1.652a6.993 6.993 0 0 1-1.929-1.115l-1.598.54a1 1 0 0 1-1.186-.447l-1.18-2.044a1 1 0 0 1 .205-1.251l1.267-1.114a7.05 7.05 0 0 1 0-2.227L1.821 7.773a1 1 0 0 1-.206-1.25l1.18-2.045a1 1 0 0 1 1.187-.447l1.598.54A6.992 6.992 0 0 1 7.51 3.455l.33-1.652ZM10 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" clip-rule="evenodd"/></svg>
+                  <span class="text-[8px] text-gray-600">Einst.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Glow under phone -->
+          <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-40 h-10 bg-accent/20 blur-2xl rounded-full"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPS SECTION -->
+  <section id="apps" class="py-24 sm:py-32 border-t border-white/5">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-sm font-semibold text-accent mb-3">Verfügbar als</p>
+        <h2 class="text-4xl sm:text-5xl font-semibold tracking-tight text-balance">Zwei Apps. Ein System.</h2>
+        <p class="mt-4 text-gray-400 max-w-lg mx-auto">Ob am Mischpult oder auf der Bühne – LuxStage ist genau dort, wo du bist.</p>
+      </div>
+
+      <div class="grid gap-6 lg:grid-cols-2">
+
+        <!-- iOS App -->
+        <div class="relative group rounded-2xl border border-white/10 bg-gray-900 p-8 overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="relative">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="size-14 rounded-2xl overflow-hidden shadow-lg shadow-accent/30">
+                <img src="logo.png" alt="LuxStage" class="size-full object-cover" />
+              </div>
+              <div>
+                <p class="text-xs font-medium text-accent mb-0.5">Native App</p>
+                <h3 class="text-xl font-semibold text-white">LuxStage für iOS</h3>
+              </div>
+            </div>
+            <p class="text-gray-400 mb-6">Die native SwiftUI-App für iPhone und iPad. Schnell, responsiv und für Touch optimiert — ob am Mischpult, auf der Bühne oder im Technikkeller.</p>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-center gap-3 text-sm text-gray-300">
+                <svg class="size-4 text-accent shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"/></svg>
+                Optimiert für iPhone & iPad
+              </li>
+              <li class="flex items-center gap-3 text-sm text-gray-300">
+                <svg class="size-4 text-accent shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"/></svg>
+                Native SwiftUI – kein Browser nötig
+              </li>
+              <li class="flex items-center gap-3 text-sm text-gray-300">
+                <svg class="size-4 text-accent shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"/></svg>
+                Echtzeit-Sync mit dem Server
+              </li>
+              <li class="flex items-center gap-3 text-sm text-gray-300">
+                <svg class="size-4 text-accent shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"/></svg>
+                Offline-Lesemodus
+              </li>
+            </ul>
+            <div class="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-gray-400">
+              <svg class="size-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10.75 2.75a.75.75 0 0 0-1.5 0v8.614L6.295 8.235a.75.75 0 1 0-1.09 1.03l4.25 4.5a.75.75 0 0 0 1.09 0l4.25-4.5a.75.75 0 0 0-1.09-1.03l-2.955 3.129V2.75Z"/><path d="M3.5 12.75a.75.75 0 0 0-1.5 0v2.5A2.75 2.75 0 0 0 4.75 18h10.5A2.75 2.75 0 0 0 18 15.25v-2.5a.75.75 0 0 0-1.5 0v2.5c0 .69-.56 1.25-1.25 1.25H4.75c-.69 0-1.25-.56-1.25-1.25v-2.5Z"/></svg>
+              App Store – demnächst
+            </div>
+          </div>
+        </div>
+
+        <!-- Web App -->
+        <div class="relative group rounded-2xl border border-white/10 bg-gray-900 p-8 overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="relative">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="size-14 rounded-2xl overflow-hidden border border-white/10">
+                <img src="logo.png" alt="LuxStage" class="size-full object-cover opacity-80" />
+              </div>
+              <div>
+                <p class="text-xs font-medium text-blue-400 mb-0.5">Web-App</p>
+                <h3 class="text-xl font-semibold text-white">LuxStage im Browser</h3>
+              </div>
+            </div>
+            <p class="text-gray-400 mb-6">Die vollständige Anwendung direkt im Browser — auf Mac, Windows, iPad oder jedem anderen Gerät. Kein App Store, keine Installation.</p>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-center gap-3 text-sm text-gray-300">
+                <svg class="size-4 text-blue-400 shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"/></svg>
+                Läuft auf jedem Gerät mit Browser
+              </li>
+              <li class="flex items-center gap-3 text-sm text-gray-300">
+                <svg class="size-4 text-blue-400 shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"/></svg>
+                CSV- & EOS-Import, PDF-Export
+              </li>
+              <li class="flex items-center gap-3 text-sm text-gray-300">
+                <svg class="size-4 text-blue-400 shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"/></svg>
+                Kanalplan bearbeiten & verwalten
+              </li>
+              <li class="flex items-center gap-3 text-sm text-gray-300">
+                <svg class="size-4 text-blue-400 shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"/></svg>
+                Benutzerverwaltung & Rollen
+              </li>
+            </ul>
+            <div class="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-gray-400">
+              <svg class="size-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.25 5A2.25 2.25 0 0 0 2 7.25v9.5A2.25 2.25 0 0 0 4.25 19h11.5A2.25 2.25 0 0 0 18 16.75v-9.5A2.25 2.25 0 0 0 15.75 5H4.25ZM3.5 7.25a.75.75 0 0 1 .75-.75h11.5a.75.75 0 0 1 .75.75v9.5a.75.75 0 0 1-.75.75H4.25a.75.75 0 0 1-.75-.75v-9.5Z" clip-rule="evenodd"/><path d="M6.75 1A.75.75 0 0 1 7.5 1.75v1.5a.75.75 0 0 1-1.5 0v-1.5A.75.75 0 0 1 6.75 1Zm6.5 0a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5a.75.75 0 0 1 .75-.75Z"/></svg>
+              Self-hosted · Raspberry Pi
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BENTO GRID FEATURES -->
+  <section id="features" class="py-24 sm:py-32 border-t border-white/5">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-sm font-semibold text-accent mb-3">Features</p>
+        <h2 class="text-4xl sm:text-5xl font-semibold tracking-tight text-balance">Was LuxStage kann</h2>
+        <p class="mt-4 text-gray-400 max-w-xl mx-auto">Vom Import aus dem Lichtpult bis zum druckfertigen PDF – alle Werkzeuge in einer App.</p>
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:grid-rows-2">
+
+        <!-- Kanalverwaltung (groß links) -->
+        <div class="relative lg:row-span-2">
+          <div class="absolute inset-px rounded-2xl bg-gray-900 lg:rounded-l-3xl"></div>
+          <div class="relative h-full flex flex-col overflow-hidden rounded-[calc(1rem+1px)] lg:rounded-l-[calc(1.5rem+1px)]">
+            <div class="px-8 pt-8 pb-4 sm:px-10 sm:pt-10">
+              <div class="inline-flex items-center justify-center size-10 rounded-xl bg-accent/15 mb-4">
+                <svg class="size-5 text-accent" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a.75.75 0 0 1 .75.75v.258a33.186 33.186 0 0 1 6.668.83.75.75 0 0 1-.336 1.461 31.28 31.28 0 0 0-1.103-.232l1.702 7.545a.75.75 0 0 1-.387.832A4.981 4.981 0 0 1 15 14c-.825 0-1.606-.2-2.294-.556a.75.75 0 0 1-.387-.832l1.77-7.849a31.743 31.743 0 0 0-3.339-.254v11.505a20.415 20.415 0 0 1 2.79.418.75.75 0 0 1-.58 1.373 19.009 19.009 0 0 0-3.96-.541v.543a.75.75 0 0 1-1.5 0v-.543a19.01 19.01 0 0 0-3.96.541.75.75 0 0 1-.58-1.373 20.42 20.42 0 0 1 2.79-.418V4.509a31.743 31.743 0 0 0-3.339.254l1.77 7.849a.75.75 0 0 1-.387.832A4.98 4.98 0 0 1 5 14a4.98 4.98 0 0 1-2.294-.556.75.75 0 0 1-.387-.832l1.702-7.545c-.37.07-.738.148-1.103.232a.75.75 0 0 1-.336-1.461 33.186 33.186 0 0 1 6.668-.83V2.75A.75.75 0 0 1 10 2Z"/></svg>
+              </div>
+              <p class="text-lg font-semibold text-white">Kanalverwaltung</p>
+              <p class="mt-2 text-sm text-gray-400">Kanäle nach Position, Kategorie und DMX-Adresse verwalten. Farben, Geräte, Notizen – alles an einem Ort. Mit Drag & Drop sortierbar.</p>
+            </div>
+            <div class="flex-1 px-8 pb-8 sm:px-10">
+              <div class="mt-4 rounded-xl border border-white/10 bg-gray-950/60 overflow-hidden text-xs">
+                <div class="px-4 py-2 border-b border-white/5 flex gap-4 text-gray-600 uppercase tracking-wider font-medium">
+                  <span class="w-6">Nr</span><span class="w-16">Farbe</span><span>Gerät</span>
+                </div>
+                <div class="divide-y divide-white/5">
+                  <div class="px-4 py-2.5 flex items-center gap-4"><span class="text-accent font-bold w-6">1</span><span class="w-16 px-2 py-0.5 rounded-full bg-white/10 text-gray-400 text-center">R02</span><span class="text-gray-300">PAR 64</span></div>
+                  <div class="px-4 py-2.5 flex items-center gap-4"><span class="text-accent font-bold w-6">2</span><span class="w-16 px-2 py-0.5 rounded-full bg-white/10 text-gray-400 text-center">L201</span><span class="text-gray-300">Profiler 1,2 kW</span></div>
+                  <div class="px-4 py-2.5 flex items-center gap-4"><span class="text-white/25 font-bold w-6">3</span><span class="w-16 px-2 py-0.5 rounded-full bg-white/5 text-gray-600 text-center">—</span><span class="text-gray-500">SL 1,2 kW</span></div>
+                  <div class="px-4 py-2.5 flex items-center gap-4"><span class="text-accent font-bold w-6">4</span><span class="w-16 px-2 py-0.5 rounded-full bg-white/10 text-gray-400 text-center">R32</span><span class="text-gray-300">Profiler 1,2 kW</span></div>
+                  <div class="px-4 py-2.5 flex items-center gap-4"><span class="text-white/25 font-bold w-6">5</span><span class="w-16 px-2 py-0.5 rounded-full bg-white/5 text-gray-600 text-center">—</span><span class="text-gray-500">PAR 64</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pointer-events-none absolute inset-px rounded-2xl shadow ring-1 ring-white/10 lg:rounded-l-3xl"></div>
+        </div>
+
+        <!-- EOS Import -->
+        <div class="relative">
+          <div class="absolute inset-px rounded-2xl bg-gray-900"></div>
+          <div class="relative h-full flex flex-col overflow-hidden rounded-[calc(1rem+1px)]">
+            <div class="px-8 pt-8 pb-4 sm:px-10 sm:pt-10">
+              <div class="inline-flex items-center justify-center size-10 rounded-xl bg-amber-400/15 mb-4">
+                <svg class="size-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm.75-11.25a.75.75 0 0 0-1.5 0v4.59L7.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02l-1.95 2.1V6.75Z" clip-rule="evenodd"/></svg>
+              </div>
+              <p class="text-lg font-semibold text-white">EOS-Import</p>
+              <p class="mt-2 text-sm text-gray-400">CSV-Exporte aus ETC EOS direkt importieren. Aktive Kanäle werden automatisch erkannt – in Sekunden übernommen.</p>
+            </div>
+            <div class="px-8 pb-8 sm:px-10 flex items-center gap-2 mt-auto">
+              <div class="flex-1 h-8 rounded-lg bg-amber-400/10 border border-amber-400/20 flex items-center px-3 gap-2">
+                <svg class="size-3 text-amber-400/60" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.5 2A1.5 1.5 0 0 0 3 3.5v13A1.5 1.5 0 0 0 4.5 18h11a1.5 1.5 0 0 0 1.5-1.5V7.621a1.5 1.5 0 0 0-.44-1.06l-4.12-4.122A1.5 1.5 0 0 0 11.378 2H4.5Z" clip-rule="evenodd"/></svg>
+                <span class="text-xs text-amber-400/70 font-mono">show_export.csv</span>
+              </div>
+              <div class="shrink-0 rounded-lg bg-amber-400/20 border border-amber-400/30 px-3 py-1.5 text-xs font-semibold text-amber-400">Import</div>
+            </div>
+          </div>
+          <div class="pointer-events-none absolute inset-px rounded-2xl shadow ring-1 ring-white/10"></div>
+        </div>
+
+        <!-- PDF Export -->
+        <div class="relative">
+          <div class="absolute inset-px rounded-2xl bg-gray-900"></div>
+          <div class="relative h-full flex flex-col overflow-hidden rounded-[calc(1rem+1px)]">
+            <div class="px-8 pt-8 pb-4 sm:px-10 sm:pt-10">
+              <div class="inline-flex items-center justify-center size-10 rounded-xl bg-blue-400/15 mb-4">
+                <svg class="size-5 text-blue-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.5 2A1.5 1.5 0 0 0 3 3.5v13A1.5 1.5 0 0 0 4.5 18h11a1.5 1.5 0 0 0 1.5-1.5V7.621a1.5 1.5 0 0 0-.44-1.06l-4.12-4.122A1.5 1.5 0 0 0 11.378 2H4.5Zm2.25 8.5a.75.75 0 0 0 0 1.5h6.5a.75.75 0 0 0 0-1.5h-6.5Zm0 3a.75.75 0 0 0 0 1.5h6.5a.75.75 0 0 0 0-1.5h-6.5Z" clip-rule="evenodd"/></svg>
+              </div>
+              <p class="text-lg font-semibold text-white">PDF-Export</p>
+              <p class="mt-2 text-sm text-gray-400">Den vollständigen Kanalplan mit einem Klick als PDF — druckfertig für die Bühne oder die Produzentenmappe.</p>
+            </div>
+            <div class="px-8 pb-8 sm:px-10 mt-auto">
+              <div class="rounded-lg border border-white/10 bg-gray-950/40 p-3 flex items-center gap-3">
+                <div class="size-8 rounded-lg bg-blue-400/20 flex items-center justify-center shrink-0">
+                  <svg class="size-4 text-blue-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.5 2A1.5 1.5 0 0 0 3 3.5v13A1.5 1.5 0 0 0 4.5 18h11a1.5 1.5 0 0 0 1.5-1.5V7.621a1.5 1.5 0 0 0-.44-1.06l-4.12-4.122A1.5 1.5 0 0 0 11.378 2H4.5Z" clip-rule="evenodd"/></svg>
+                </div>
+                <div>
+                  <p class="text-xs font-medium text-white">kanalplan_frühling_2026.pdf</p>
+                  <p class="text-xs text-gray-500">184 Kanäle · 3 Seiten</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pointer-events-none absolute inset-px rounded-2xl shadow ring-1 ring-white/10"></div>
+        </div>
+
+        <!-- Vorlagen -->
+        <div class="relative">
+          <div class="absolute inset-px rounded-2xl bg-gray-900"></div>
+          <div class="relative h-full flex flex-col overflow-hidden rounded-[calc(1rem+1px)]">
+            <div class="px-8 pt-8 pb-4 sm:px-10 sm:pt-10">
+              <div class="inline-flex items-center justify-center size-10 rounded-xl bg-green-400/15 mb-4">
+                <svg class="size-5 text-green-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M2 4.75A.75.75 0 0 1 2.75 4h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 4.75ZM2 10a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 10Zm0 5.25a.75.75 0 0 1 .75-.75H10a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd"/><path d="M16.72 11.03a.75.75 0 1 0-1.06-1.06L13.5 12.13l-.47-.47a.75.75 0 0 0-1.06 1.06l1 1a.75.75 0 0 0 1.06 0l2.69-2.69Z"/></svg>
+              </div>
+              <p class="text-lg font-semibold text-white">Spielstätten-Vorlagen</p>
+              <p class="mt-2 text-sm text-gray-400">Spielstätten einmalig anlegen, bei jeder Show wiederverwenden. Eigene Felder für Maße, Brücken und mehr.</p>
+            </div>
+            <div class="px-8 pb-8 sm:px-10 mt-auto flex gap-2 flex-wrap">
+              <span class="text-xs rounded-full border border-white/10 bg-white/5 px-3 py-1 text-gray-400">Großes Haus</span>
+              <span class="text-xs rounded-full border border-white/10 bg-white/5 px-3 py-1 text-gray-400">Kammerspiele</span>
+              <span class="text-xs rounded-full border border-white/10 bg-white/5 px-3 py-1 text-gray-400">Studio</span>
+              <span class="text-xs rounded-full border border-accent/20 bg-accent/10 px-3 py-1 text-accent">+ Neu</span>
+            </div>
+          </div>
+          <div class="pointer-events-none absolute inset-px rounded-2xl shadow ring-1 ring-white/10"></div>
+        </div>
+
+        <!-- Echtzeit-Sync -->
+        <div class="relative">
+          <div class="absolute inset-px rounded-2xl bg-gray-900"></div>
+          <div class="relative h-full flex flex-col overflow-hidden rounded-[calc(1rem+1px)]">
+            <div class="px-8 pt-8 pb-4 sm:px-10 sm:pt-10">
+              <div class="inline-flex items-center justify-center size-10 rounded-xl bg-purple-400/15 mb-4">
+                <svg class="size-5 text-purple-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M15.312 11.424a5.5 5.5 0 0 1-9.201 2.466l-.312-.311h2.433a.75.75 0 0 0 0-1.5H3.989a.75.75 0 0 0-.75.75v4.242a.75.75 0 0 0 1.5 0v-2.43l.31.31a7 7 0 0 0 11.712-3.138.75.75 0 0 0-1.449-.39Zm1.23-3.723a.75.75 0 0 0 .219-.53V2.929a.75.75 0 0 0-1.5 0V5.36l-.31-.31A7 7 0 0 0 3.239 8.188a.75.75 0 1 0 1.448.389A5.5 5.5 0 0 1 13.89 6.11l.311.31h-2.432a.75.75 0 0 0 0 1.5h4.243a.75.75 0 0 0 .53-.219Z" clip-rule="evenodd"/></svg>
+              </div>
+              <p class="text-lg font-semibold text-white">Echtzeit-Sync</p>
+              <p class="mt-2 text-sm text-gray-400">Speichert ein Benutzer Änderungen, aktualisieren sich alle anderen verbundenen Geräte automatisch. Web-App und iOS-App sehen immer denselben Stand.</p>
+            </div>
+          </div>
+          <div class="pointer-events-none absolute inset-px rounded-2xl shadow ring-1 ring-white/10"></div>
+        </div>
+
+        <!-- Fotos -->
+        <div class="relative">
+          <div class="absolute inset-px rounded-2xl bg-gray-900"></div>
+          <div class="relative h-full flex flex-col overflow-hidden rounded-[calc(1rem+1px)]">
+            <div class="px-8 pt-8 pb-4 sm:px-10 sm:pt-10">
+              <div class="inline-flex items-center justify-center size-10 rounded-xl bg-sky-400/15 mb-4">
+                <svg class="size-5 text-sky-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M1 8a2 2 0 0 1 2-2h.93a2 2 0 0 0 1.664-.89l.812-1.22A2 2 0 0 1 8.07 3h3.86a2 2 0 0 1 1.664.89l.812 1.22A2 2 0 0 0 16.07 6H17a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8Zm13.5 3a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0ZM10 14a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" clip-rule="evenodd"/></svg>
+              </div>
+              <p class="text-lg font-semibold text-white">Fotos</p>
+              <p class="mt-2 text-sm text-gray-400">Fotos direkt mit der iOS-App aufnehmen – Aufbausituation, Kabelführung oder besondere Rigg-Details immer griffbereit auf allen Geräten.</p>
+            </div>
+          </div>
+          <div class="pointer-events-none absolute inset-px rounded-2xl shadow ring-1 ring-white/10"></div>
+        </div>
+
+        <!-- Einleuchtmodus (groß) -->
+        <div class="relative lg:row-span-2">
+          <div class="absolute inset-px rounded-2xl bg-gray-900 lg:rounded-r-3xl"></div>
+          <div class="relative h-full flex flex-col overflow-hidden rounded-[calc(1rem+1px)] lg:rounded-r-[calc(1.5rem+1px)]">
+            <div class="px-8 pt-8 pb-4 sm:px-10 sm:pt-10">
+              <div class="inline-flex items-center justify-center size-10 rounded-xl bg-purple-400/15 mb-4">
+                <svg class="size-5 text-purple-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1a6 6 0 0 0-3.815 10.631C7.237 12.5 8 13.443 8 14.456v.644a.75.75 0 0 0 .572.729 6.016 6.016 0 0 0 2.856 0A.75.75 0 0 0 12 15.1v-.644c0-1.013.762-1.957 1.815-2.825A6 6 0 0 0 10 1ZM8.863 17.414a.75.75 0 0 0-.226 1.483 9.066 9.066 0 0 0 2.726 0 .75.75 0 0 0-.226-1.483 7.553 7.553 0 0 1-2.274 0Z"/></svg>
+              </div>
+              <p class="text-lg font-semibold text-white">Einleuchtmodus</p>
+              <p class="mt-2 text-sm text-gray-400">Fokussierter Modus fürs Einleuchten: Alle Positionen auf einen Blick, abgehakte Scheinwerfer sofort sichtbar – kein Suchen, kein Blättern.</p>
+            </div>
+           <!-- iOS-App Mock -->
+            <div class="flex-1 px-6 pb-8 sm:px-8 flex flex-col gap-3 overflow-hidden">
+
+              <!-- Gruppe: Versatz Bühne hinten rechts -->
+              <div class="rounded-2xl bg-gray-950/70 overflow-hidden">
+                <div class="px-3 pt-2.5 pb-1 text-[9px] font-semibold text-gray-500 uppercase tracking-wider">Versatz Bühne hinten rechts</div>
+                <!-- Kanal 9 – offen -->
+                <div class="px-3 py-2.5 border-t border-white/5">
+                  <div class="flex items-start gap-3 mb-2">
+                    <div class="shrink-0">
+                      <span class="text-[20px] font-bold font-mono leading-none text-white">9</span>
+                      <div class="text-[9px] text-center font-medium mt-0.5 px-1.5 py-0.5 rounded-full bg-white/10 text-gray-400">201</div>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <p class="text-[11px] text-white leading-snug">auf Bodenstativ unter Podest links diagonal nach rechts</p>
+                      <p class="text-[9px] text-gray-500 mt-0.5">1/127 · VK Bühne unten Rs</p>
+                    </div>
+                  </div>
+                  <div class="flex gap-2">
+                    <div class="flex-1 h-7 rounded-xl bg-white/8 border border-white/10 flex items-center justify-center">
+                      <svg class="size-3.5 text-gray-500" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="7"/></svg>
+                    </div>
+                    <div class="flex-1 h-7 rounded-xl bg-white/8 border border-white/10 flex items-center justify-center">
+                      <svg class="size-3.5 text-gray-500" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1a6 6 0 0 0-3.815 10.631C7.237 12.5 8 13.443 8 14.456v.644a.75.75 0 0 0 .572.729 6.016 6.016 0 0 0 2.856 0A.75.75 0 0 0 12 15.1v-.644c0-1.013.762-1.957 1.815-2.825A6 6 0 0 0 10 1ZM8.863 17.414a.75.75 0 0 0-.226 1.483 9.066 9.066 0 0 0 2.726 0 .75.75 0 0 0-.226-1.483 7.553 7.553 0 0 1-2.274 0Z"/></svg>
+                    </div>
+                  </div>
+                </div>
+                <!-- Kanal 10 – abgehakt -->
+                <div class="px-3 py-2.5 border-t border-white/5">
+                  <div class="flex items-start gap-3 mb-2">
+                    <div class="shrink-0">
+                      <span class="text-[20px] font-bold font-mono leading-none text-white/30">10</span>
+                      <div class="text-[9px] text-center font-medium mt-0.5 px-1.5 py-0.5 rounded-full bg-white/5 text-gray-600">201</div>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <p class="text-[11px] text-gray-500 leading-snug line-through">auf Bodenstativ unter Podest rechts diagonal nach links</p>
+                      <p class="text-[9px] text-gray-600 mt-0.5">1/128 · VK Bühne unten Rs</p>
+                    </div>
+                  </div>
+                  <div class="flex gap-2">
+                    <div class="flex-1 h-7 rounded-xl bg-accent/20 border border-accent/30 flex items-center justify-center">
+                      <svg class="size-3.5 text-accent" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd"/></svg>
+                    </div>
+                    <div class="flex-1 h-7 rounded-xl bg-white/8 border border-white/10 flex items-center justify-center">
+                      <svg class="size-3.5 text-gray-600" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1a6 6 0 0 0-3.815 10.631C7.237 12.5 8 13.443 8 14.456v.644a.75.75 0 0 0 .572.729 6.016 6.016 0 0 0 2.856 0A.75.75 0 0 0 12 15.1v-.644c0-1.013.762-1.957 1.815-2.825A6 6 0 0 0 10 1ZM8.863 17.414a.75.75 0 0 0-.226 1.483 9.066 9.066 0 0 0 2.726 0 .75.75 0 0 0-.226-1.483 7.553 7.553 0 0 1-2.274 0Z"/></svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tab-Bar -->
+              <div class="mt-auto rounded-2xl bg-gray-950/80 border border-white/8 px-2 py-2 flex justify-around items-center">
+                <div class="flex flex-col items-center gap-0.5 px-3 py-1 rounded-xl">
+                  <svg class="size-4 text-gray-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 0 1-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 0 1 .947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 0 1 2.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 0 1 2.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 0 1 .947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 0 1-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 0 1-2.287-.947Z" clip-rule="evenodd"/><path d="M10 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/></svg>
+                  <span class="text-[8px] text-gray-500">Aufbau</span>
+                </div>
+                <div class="flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-xl bg-accent/15">
+                  <svg class="size-4 text-accent" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1a6 6 0 0 0-3.815 10.631C7.237 12.5 8 13.443 8 14.456v.644a.75.75 0 0 0 .572.729 6.016 6.016 0 0 0 2.856 0A.75.75 0 0 0 12 15.1v-.644c0-1.013.762-1.957 1.815-2.825A6 6 0 0 0 10 1ZM8.863 17.414a.75.75 0 0 0-.226 1.483 9.066 9.066 0 0 0 2.726 0 .75.75 0 0 0-.226-1.483 7.553 7.553 0 0 1-2.274 0Z"/></svg>
+                  <span class="text-[8px] text-accent font-medium">Einleuchten</span>
+                </div>
+                <div class="flex flex-col items-center gap-0.5 px-3 py-1 rounded-xl">
+                  <svg class="size-4 text-gray-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.25 2A2.25 2.25 0 0 0 2 4.25v11.5A2.25 2.25 0 0 0 4.25 18h11.5A2.25 2.25 0 0 0 18 15.75V4.25A2.25 2.25 0 0 0 15.75 2H4.25ZM6.5 7.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 0 1.5h-5.5a.75.75 0 0 1-.75-.75Zm.75 2.75a.75.75 0 0 0 0 1.5h5.5a.75.75 0 0 0 0-1.5h-5.5Zm-.75 3.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd"/></svg>
+                  <span class="text-[8px] text-gray-500">Numpad</span>
+                </div>
+                <div class="flex flex-col items-center gap-0.5 px-3 py-1 rounded-xl">
+                  <svg class="size-4 text-gray-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M1 8a2 2 0 0 1 2-2h.93a2 2 0 0 0 1.664-.89l.812-1.22A2 2 0 0 1 8.07 3h3.86a2 2 0 0 1 1.664.89l.812 1.22A2 2 0 0 0 16.07 6H17a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8Zm13.5 3a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0ZM10 14a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" clip-rule="evenodd"/></svg>
+                  <span class="text-[8px] text-gray-500">Fotos</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="pointer-events-none absolute inset-px rounded-2xl shadow ring-1 ring-white/10 lg:rounded-r-3xl"></div>
+        </div>
+
+        <!-- Versionsverlauf -->
+        <div class="relative">
+          <div class="absolute inset-px rounded-2xl bg-gray-900"></div>
+          <div class="relative h-full flex flex-col overflow-hidden rounded-[calc(1rem+1px)]">
+            <div class="px-8 pt-8 pb-4 sm:px-10 sm:pt-10">
+              <div class="inline-flex items-center justify-center size-10 rounded-xl bg-gray-700/50 mb-4">
+                <svg class="size-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm.75-13a.75.75 0 0 0-1.5 0v5c0 .414.336.75.75.75h4a.75.75 0 0 0 0-1.5h-3.25V5Z" clip-rule="evenodd"/></svg>
+              </div>
+              <p class="text-lg font-semibold text-white">Versionsverlauf</p>
+              <p class="mt-2 text-sm text-gray-400">Jeden Arbeitsstand aufrufen und bei Bedarf wiederherstellen. Keine Änderung geht verloren.</p>
+            </div>
+            <div class="px-8 pb-8 sm:px-10 mt-auto flex flex-col gap-2.5">
+              <div class="flex items-center gap-3 text-xs"><div class="size-1.5 rounded-full bg-accent"></div><span class="text-gray-300">Heute, 14:32</span><span class="ml-auto text-gray-600">184 Kanäle</span></div>
+              <div class="flex items-center gap-3 text-xs"><div class="size-1.5 rounded-full bg-white/20"></div><span class="text-gray-500">Heute, 09:15</span><span class="ml-auto text-gray-600">181 Kanäle</span></div>
+              <div class="flex items-center gap-3 text-xs"><div class="size-1.5 rounded-full bg-white/20"></div><span class="text-gray-500">Gestern, 18:44</span><span class="ml-auto text-gray-600">177 Kanäle</span></div>
+            </div>
+          </div>
+          <div class="pointer-events-none absolute inset-px rounded-2xl shadow ring-1 ring-white/10"></div>
+        </div>
+
+        <!-- Aufbaunotizen -->
+        <div class="relative">
+          <div class="absolute inset-px rounded-2xl bg-gray-900"></div>
+          <div class="relative h-full flex flex-col overflow-hidden rounded-[calc(1rem+1px)]">
+            <div class="px-8 pt-8 pb-4 sm:px-10 sm:pt-10">
+              <div class="inline-flex items-center justify-center size-10 rounded-xl bg-orange-400/15 mb-4">
+                <svg class="size-5 text-orange-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 4a2 2 0 0 1 2-2h4.586A2 2 0 0 1 12 2.586L15.414 6A2 2 0 0 1 16 7.414V16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4Zm2 6a.75.75 0 0 1 .75-.75h6.5a.75.75 0 0 1 0 1.5h-6.5A.75.75 0 0 1 6 10Zm.75 2.75a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5h-4.5ZM8 6.5A.75.75 0 0 1 8.75 6h2.5a.75.75 0 0 1 0 1.5h-2.5A.75.75 0 0 1 8 6.5Z" clip-rule="evenodd"/></svg>
+              </div>
+              <p class="text-lg font-semibold text-white">Aufbaunotizen</p>
+              <p class="mt-2 text-sm text-gray-400">Markdown-Notizen direkt an der Produktion — für Besonderheiten beim Aufbau, Kabelwege, Brückenmaße oder Absprachen mit der Regie.</p>
+            </div>
+            <div class="px-8 pb-8 sm:px-10 mt-auto">
+              <div class="rounded-lg border border-white/10 bg-gray-950/40 px-4 py-3 font-mono text-xs text-gray-500 leading-relaxed">
+                <span class="text-orange-400/70">##</span> Frontbrücke<br/>
+                Abstand Bühnenkante: <span class="text-gray-300">2,40 m</span><br/>
+                <span class="text-gray-600">– Kabel über Gasse links</span>
+              </div>
+            </div>
+          </div>
+          <div class="pointer-events-none absolute inset-px rounded-2xl shadow ring-1 ring-white/10"></div>
+        </div>
+
+        <!-- OSC-Steuerung -->
+        <div class="relative">
+          <div class="absolute inset-px rounded-2xl bg-gray-900"></div>
+          <div class="relative h-full flex flex-col overflow-hidden rounded-[calc(1rem+1px)]">
+            <div class="px-8 pt-8 pb-4 sm:px-10 sm:pt-10">
+              <div class="inline-flex items-center justify-center size-10 rounded-xl bg-rose-400/15 mb-4">
+                <svg class="size-5 text-rose-400" viewBox="0 0 20 20" fill="currentColor"><path d="M7 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM14.5 9a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5ZM1.615 16.428a1.224 1.224 0 0 1-.569-1.175 6.002 6.002 0 0 1 11.908 0c.058.467-.172.92-.57 1.174A9.953 9.953 0 0 1 7 17a9.953 9.953 0 0 1-5.385-1.572ZM14.5 16h-.106c.07-.297.088-.611.048-.933a7.47 7.47 0 0 0-1.588-3.755 4.502 4.502 0 0 1 5.874 2.636.818.818 0 0 1-.36.98A7.465 7.465 0 0 1 14.5 16Z"/></svg>
+              </div>
+              <p class="text-lg font-semibold text-white">OSC-Steuerung</p>
+              <p class="mt-2 text-sm text-gray-400">Steuere dein Lichtpult (ETC EOS, MA u.a.) direkt aus der App: Im Einleuchten-Modus senden Kanal-Buttons Full/Out per OSC, das integrierte Numpad erlaubt freie Kommandoeingabe.</p>
+            </div>
+            <div class="px-8 pb-8 sm:px-10 mt-auto flex items-center gap-3">
+              <div class="flex-1 h-8 rounded-lg bg-rose-400/10 border border-rose-400/20 flex items-center px-3 gap-2">
+                <span class="text-xs text-rose-400/70 font-mono">192.168.1.42:8000</span>
+              </div>
+              <div class="shrink-0 rounded-lg bg-rose-400/20 border border-rose-400/30 px-3 py-1.5 text-xs font-semibold text-rose-400">Full</div>
+            </div>
+          </div>
+          <div class="pointer-events-none absolute inset-px rounded-2xl shadow ring-1 ring-white/10"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKFLOW -->
+  <section id="workflow" class="py-24 sm:py-32 border-t border-white/5">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-sm font-semibold text-accent mb-3">Workflow</p>
+        <h2 class="text-4xl sm:text-5xl font-semibold tracking-tight text-balance">Von der Probe zur Premiere</h2>
+      </div>
+      <div class="grid gap-8 sm:grid-cols-3">
+        <div class="relative pl-10">
+          <div class="absolute left-0 top-0 flex size-7 items-center justify-center rounded-full bg-accent text-xs font-bold text-white shrink-0">1</div>
+          <h3 class="font-semibold text-white mb-2">Spielstätte einrichten</h3>
+          <p class="text-sm text-gray-400">Vorlage für die Spielstätte anlegen – Kanalstruktur einmal definieren, bei jeder neuen Produktion sofort verfügbar.</p>
+        </div>
+        <div class="relative pl-10">
+          <div class="absolute left-0 top-0 flex size-7 items-center justify-center rounded-full bg-accent text-xs font-bold text-white shrink-0">2</div>
+          <h3 class="font-semibold text-white mb-2">Kanäle planen & einleuchten</h3>
+          <p class="text-sm text-gray-400">Aus EOS importieren oder manuell befüllen. iOS-App und Web-App sind synchron – Beleuchter und Assistent sehen immer dasselbe.</p>
+        </div>
+        <div class="relative pl-10">
+          <div class="absolute left-0 top-0 flex size-7 items-center justify-center rounded-full bg-accent text-xs font-bold text-white shrink-0">3</div>
+          <h3 class="font-semibold text-white mb-2">Exportieren & archivieren</h3>
+          <p class="text-sm text-gray-400">Kanalplan als PDF ausgeben. Shows archivieren und bei Wiederaufnahmen reaktivieren – mit vollständigem Versionsverlauf.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-24 sm:py-32 border-t border-white/5">
+    <div class="mx-auto max-w-3xl px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-sm font-semibold text-accent mb-3">FAQ</p>
+        <h2 class="text-4xl font-semibold tracking-tight">Häufige Fragen</h2>
+      </div>
+      <dl class="space-y-6">
+        <div class="border-b border-white/10 pb-6">
+          <dt class="font-semibold text-white mb-2">Was ist der Unterschied zwischen iOS-App und Web-App?</dt>
+          <dd class="text-sm text-gray-400">Die iOS-App ist nativ in SwiftUI entwickelt und läuft direkt auf iPhone und iPad – ohne Browser. Sie ist besonders für den Einsatz auf der Bühne optimiert. Die Web-App läuft im Browser auf jedem Gerät und bietet zusätzliche Verwaltungsfunktionen wie Benutzerverwaltung und CSV-Import.</dd>
+        </div>
+        <div class="border-b border-white/10 pb-6">
+          <dt class="font-semibold text-white mb-2">Welche Geräte werden unterstützt?</dt>
+          <dd class="text-sm text-gray-400">Die Web-App läuft auf Mac, Windows, iPad und iPhone im Browser. Die native iOS-App unterstützt iPhone und iPad ab iOS 17.</dd>
+        </div>
+        <div class="border-b border-white/10 pb-6">
+          <dt class="font-semibold text-white mb-2">Wie wird LuxStage betrieben?</dt>
+          <dd class="text-sm text-gray-400">LuxStage läuft als selbst gehosteter Server – z. B. auf einem Raspberry Pi im lokalen Theaternetz. Keine Cloud, keine Abhängigkeit von Drittanbietern, keine laufenden Kosten.</dd>
+        </div>
+        <div class="border-b border-white/10 pb-6">
+          <dt class="font-semibold text-white mb-2">Funktioniert LuxStage auch offline?</dt>
+          <dd class="text-sm text-gray-400">Ja. Sowohl die iOS-App als auch die Web-App zeigen gespeicherte Daten auch ohne aktive Serververbindung an. Änderungen werden synchronisiert, sobald die Verbindung wiederhergestellt ist.</dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-white mb-2">Unterstützt LuxStage mehrere Benutzer?</dt>
+          <dd class="text-sm text-gray-400">Ja. Admins und Techniker können gleichzeitig arbeiten. Änderungen werden in Echtzeit für alle verbundenen Geräte – iOS und Web – synchronisiert.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="kontakt" class="py-24 sm:py-32 border-t border-white/5">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="relative rounded-3xl bg-gray-900 border border-white/10 overflow-hidden px-8 py-20 sm:px-16 text-center">
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div class="w-[500px] h-[300px] rounded-full bg-accent/10 blur-3xl"></div>
+        </div>
+        <div class="relative">
+          <p class="text-sm font-semibold text-accent mb-4">Interesse?</p>
+          <h2 class="text-4xl sm:text-5xl font-semibold tracking-tight text-balance mb-6">LuxStage für dein Theater</h2>
+          <p class="text-gray-400 max-w-xl mx-auto mb-10 text-balance">LuxStage ist Open Source und selbst gehostet. Für Fragen, Feedback oder einen gemeinsamen Austausch — meld dich gerne.</p>
+          <a href="mailto:hallo@luxstage.app" class="inline-flex items-center rounded-lg bg-accent px-8 py-3.5 text-sm font-semibold text-white hover:bg-accent/90 transition-colors shadow-lg shadow-accent/20">
+            Schreib uns
+            <svg class="ml-2 size-4" viewBox="0 0 20 20" fill="currentColor"><path d="M3 4a2 2 0 0 0-2 2v1.161l8.441 4.221a1.25 1.25 0 0 0 1.118 0L19 7.162V6a2 2 0 0 0-2-2H3Z"/><path d="m19 8.839-7.77 3.885a2.75 2.75 0 0 1-2.46 0L1 8.839V14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.839Z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/5 py-10">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2.5 text-sm text-gray-500">
+        <img src="logo.png" alt="LuxStage" class="size-6 rounded-md opacity-80" />
+        LuxStage
+      </div>
+      <p class="text-xs text-gray-700">Web-App & iOS-App für Beleuchtungsmanagement im Theater</p>
+    </div>
+  </footer>
+
+</body>
+</html>
