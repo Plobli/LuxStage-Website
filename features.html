@@ -57,6 +57,8 @@
       <div class="flex items-center gap-1 overflow-x-auto py-3 text-sm scrollbar-hide">
         <a href="#kanallisten" class="shrink-0 rounded-lg px-3 py-1.5 text-gray-400 hover:text-white hover:bg-white/5 transition-colors" data-i18n="feat_nav_channels">Kanallisten</a>
         <a href="#einleuchten" class="shrink-0 rounded-lg px-3 py-1.5 text-gray-400 hover:text-white hover:bg-white/5 transition-colors" data-i18n="feat_nav_focus">Einleuchten & OSC</a>
+        <a href="#aufbau" class="shrink-0 rounded-lg px-3 py-1.5 text-gray-400 hover:text-white hover:bg-white/5 transition-colors" data-i18n="feat_nav_setup">Aufbau</a>
+        <a href="#grundriss" class="shrink-0 rounded-lg px-3 py-1.5 text-gray-400 hover:text-white hover:bg-white/5 transition-colors" data-i18n="feat_nav_floorplan">Grundriss</a>
         <a href="#notizen" class="shrink-0 rounded-lg px-3 py-1.5 text-gray-400 hover:text-white hover:bg-white/5 transition-colors" data-i18n="feat_nav_notes">Aufbaunotizen</a>
         <a href="#fotos" class="shrink-0 rounded-lg px-3 py-1.5 text-gray-400 hover:text-white hover:bg-white/5 transition-colors" data-i18n="feat_nav_photos">Fotodokumentation</a>
         <a href="#import-export" class="shrink-0 rounded-lg px-3 py-1.5 text-gray-400 hover:text-white hover:bg-white/5 transition-colors" data-i18n="feat_nav_import">Import & Export</a>
@@ -162,11 +164,73 @@
               <p class="text-xs text-gray-400" data-i18n="focus_numpad_desc">Freie Kommandoeingabe: Kanal- und Gruppen-Nummern, „Thru" für Bereiche, „@" für Intensitäten, Full/Out-Buttons.</p>
             </div>
             <div class="rounded-xl bg-gray-950/60 border border-white/10 p-4">
+              <p class="text-xs font-semibold text-rose-400 mb-2" data-i18n="focus_playback_title">Playback-Tab</p>
+              <p class="text-xs text-gray-400" data-i18n="focus_playback_desc">Cues starten, stoppen und weiterschalten — direkt aus der App, ohne Umweg über das Pult.</p>
+            </div>
+            <div class="rounded-xl bg-gray-950/60 border border-white/10 p-4">
+              <p class="text-xs font-semibold text-rose-400 mb-2" data-i18n="focus_fader_title">Fader-Tab</p>
+              <p class="text-xs text-gray-400" data-i18n="focus_fader_desc">Submaster-Fader direkt auf dem iPhone — Intensitäten stufenlos regeln per Touch.</p>
+            </div>
+            <div class="rounded-xl bg-gray-950/60 border border-white/10 p-4">
+              <p class="text-xs font-semibold text-rose-400 mb-2" data-i18n="focus_ml_title">ML-Steuerung (Moving Lights)</p>
+              <p class="text-xs text-gray-400" data-i18n="focus_ml_desc">Pan, Tilt, Zoom und weitere Parameter von Moving Lights per OSC steuern.</p>
+            </div>
+            <div class="rounded-xl bg-gray-950/60 border border-white/10 p-4">
               <p class="text-xs font-semibold text-rose-400 mb-2" data-i18n="focus_config_title">Konfiguration</p>
               <p class="text-xs text-gray-400" data-i18n="focus_config_desc">Pro Spielstätte einstellbar: IP-Adresse, OSC-Port (Standard 8000), EOS-User-ID. Konfigurationen speichern & laden.</p>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUFBAU-CHECKLISTE -->
+  <section id="aufbau" class="py-24 sm:py-32 border-t border-white/5">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="mb-14">
+        <p class="text-sm font-semibold text-teal-400 mb-3" data-i18n="sec_setup_label">Aufbau-Checkliste</p>
+        <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight text-balance" data-i18n="sec_setup_headline">Aufbau abhaken, nichts vergessen</h2>
+        <p class="mt-4 text-gray-400 max-w-2xl" data-i18n="sec_setup_desc">Ein eigener Aufbau-Tab in der iOS-App: Abhakbare Setup-Aufgaben pro Show — unabhängig vom Einleuchten-Modus. Jede Aufgabe bleibt erledigt, bis die nächste Show beginnt.</p>
+      </div>
+      <div class="grid gap-6 lg:grid-cols-2">
+        <div class="rounded-2xl border border-white/10 bg-gray-900 p-8">
+          <h3 class="font-semibold text-white mb-4" data-i18n="setup_tasks_title">Aufgaben pro Show</h3>
+          <div class="space-y-2">
+            <div class="flex items-center gap-3 rounded-xl bg-gray-950/60 border border-white/10 px-4 py-3 text-sm"><svg class="size-4 text-teal-400 shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd"/></svg><span class="text-gray-400 line-through">2× PAR 64 auf Stativ</span></div>
+            <div class="flex items-center gap-3 rounded-xl bg-gray-950/60 border border-white/10 px-4 py-3 text-sm"><svg class="size-4 text-teal-400 shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd"/></svg><span class="text-gray-400 line-through">Dimmer D3 patchen</span></div>
+            <div class="flex items-center gap-3 rounded-xl bg-gray-950/60 border border-white/10 px-4 py-3 text-sm"><svg class="size-4 text-gray-600 shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="7"/></svg><span class="text-gray-300">Frontbrücke kontrollieren</span></div>
+            <div class="flex items-center gap-3 rounded-xl bg-gray-950/60 border border-white/10 px-4 py-3 text-sm"><svg class="size-4 text-gray-600 shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="7"/></svg><span class="text-gray-300">OSC-Verbindung prüfen</span></div>
+          </div>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-gray-900 p-8 flex flex-col gap-4">
+          <div>
+            <h3 class="font-semibold text-white mb-2" data-i18n="setup_separate_title">Getrennt vom Einleuchten</h3>
+            <p class="text-sm text-gray-400" data-i18n="setup_separate_desc">Aufbau-Tab und Einleuchten-Tab sind separate Bereiche der iOS-App. Aufbau-Aufgaben betreffen die Vorbereitung, der Einleuchten-Modus die Arbeit am Pult.</p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-white mb-2" data-i18n="setup_pershow_title">Pro Show</h3>
+            <p class="text-sm text-gray-400" data-i18n="setup_pershow_desc">Jede Produktion hat ihre eigene Aufbau-Checkliste. Abgehakt bedeutet: für diese Show erledigt.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GRUNDRISS -->
+  <section id="grundriss" class="py-24 sm:py-32 border-t border-white/5">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="mb-14">
+        <p class="text-sm font-semibold text-indigo-400 mb-3" data-i18n="sec_floorplan_label">Grundriss-Editor</p>
+        <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight text-balance" data-i18n="sec_floorplan_headline">Bühnenplan im Browser zeichnen</h2>
+        <p class="mt-4 text-gray-400 max-w-2xl" data-i18n="sec_floorplan_desc">Vollständiger Vektor-Editor in der Web-App: Spielstätte einmal zeichnen, in alle Shows vererben. Kanäle als nummerierte Marker platzieren, Grundriss als PNG exportieren.</p>
+      </div>
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="rounded-2xl border border-white/10 bg-gray-900 p-6"><div class="inline-flex items-center justify-center size-10 rounded-xl bg-indigo-400/15 mb-4"><svg class="size-5 text-indigo-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H4Zm.25 14.5h11.5a.25.25 0 0 0 .25-.25V4.25a.25.25 0 0 0-.25-.25H4.25a.25.25 0 0 0-.25.25v11.5c0 .138.112.25.25.25Z" clip-rule="evenodd"/><path d="M8 7a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg></div><h3 class="font-semibold text-white mb-2" data-i18n="floorplan_tools_title">Zeichenwerkzeuge</h3><p class="text-sm text-gray-400" data-i18n="floorplan_tools_desc">Linie, Rechteck, Ellipse, Text — alle grundlegenden Vektorformen für die Bühnenzeichnung.</p></div>
+        <div class="rounded-2xl border border-white/10 bg-gray-900 p-6"><div class="inline-flex items-center justify-center size-10 rounded-xl bg-indigo-400/15 mb-4"><svg class="size-5 text-indigo-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM6 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM1.49 15.326a.78.78 0 0 1-.358-.442 3 3 0 0 1 4.308-3.516 6.484 6.484 0 0 0-1.905 3.959c-.023.222-.014.442.025.654a4.97 4.97 0 0 1-2.07-.655ZM16.44 15.98a4.97 4.97 0 0 0 2.07-.654.78.78 0 0 0 .357-.442 3 3 0 0 0-4.308-3.517 6.484 6.484 0 0 1 1.907 3.96 2.32 2.32 0 0 1-.026.654ZM18 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM5.304 16.19a.844.844 0 0 1-.277-.71 5 5 0 0 1 9.947 0 .843.843 0 0 1-.277.71A6.975 6.975 0 0 1 10 18a6.974 6.974 0 0 1-4.696-1.81Z"/></svg></div><h3 class="font-semibold text-white mb-2" data-i18n="floorplan_channels_title">Kanäle platzieren</h3><p class="text-sm text-gray-400" data-i18n="floorplan_channels_desc">Kanäle als nummerierte Kreismarker auf dem Grundriss positionieren — direkte Verbindung zur Kanalliste.</p></div>
+        <div class="rounded-2xl border border-white/10 bg-gray-900 p-6"><div class="inline-flex items-center justify-center size-10 rounded-xl bg-indigo-400/15 mb-4"><svg class="size-5 text-indigo-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M1 5.25A2.25 2.25 0 0 1 3.25 3h13.5A2.25 2.25 0 0 1 19 5.25v9.5A2.25 2.25 0 0 1 16.75 17H3.25A2.25 2.25 0 0 1 1 14.75v-9.5Zm2.25-.75a.75.75 0 0 0-.75.75v9.5c0 .414.336.75.75.75h13.5a.75.75 0 0 0 .75-.75v-9.5a.75.75 0 0 0-.75-.75H3.25Z" clip-rule="evenodd"/></svg></div><h3 class="font-semibold text-white mb-2" data-i18n="floorplan_bg_title">Hintergrundbild</h3><p class="text-sm text-gray-400" data-i18n="floorplan_bg_desc">Bestehenden Bühnenplan als Bild hochladen und als Hintergrund verwenden — Zeichnung darüber legen.</p></div>
+        <div class="rounded-2xl border border-white/10 bg-gray-900 p-6"><div class="inline-flex items-center justify-center size-10 rounded-xl bg-indigo-400/15 mb-4"><svg class="size-5 text-indigo-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.75 2.75a.75.75 0 0 0-1.5 0v8.614L6.295 8.235a.75.75 0 1 0-1.09 1.03l4.25 4.5a.75.75 0 0 0 1.09 0l4.25-4.5a.75.75 0 0 0-1.09-1.03l-2.955 3.129V2.75Z"/><path d="M3.5 12.75a.75.75 0 0 0-1.5 0v2.5A2.75 2.75 0 0 0 4.75 18h10.5A2.75 2.75 0 0 0 18 15.25v-2.5a.75.75 0 0 0-1.5 0v2.5c0 .69-.56 1.25-1.25 1.25H4.75c-.69 0-1.25-.56-1.25-1.25v-2.5Z"/></svg></div><h3 class="font-semibold text-white mb-2" data-i18n="floorplan_export_title">PNG-Export</h3><p class="text-sm text-gray-400" data-i18n="floorplan_export_desc">Fertigen Grundriss als PNG exportieren — für Unterlagen, Präsentationen oder den Ausdruck.</p></div>
+        <div class="rounded-2xl border border-white/10 bg-gray-900 p-6"><div class="inline-flex items-center justify-center size-10 rounded-xl bg-green-400/15 mb-4"><svg class="size-5 text-green-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M2 4.75A.75.75 0 0 1 2.75 4h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 4.75ZM2 10a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 10Zm0 5.25a.75.75 0 0 1 .75-.75H10a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd"/></svg></div><h3 class="font-semibold text-white mb-2" data-i18n="floorplan_inherit_title">Vererbung aus Vorlage</h3><p class="text-sm text-gray-400" data-i18n="floorplan_inherit_desc">Der Vorlage-Grundriss wird automatisch in alle neuen Shows übernommen — einmal zeichnen, immer verwenden.</p></div>
       </div>
     </div>
   </section>
@@ -260,7 +324,14 @@
           </div>
         </div>
         <div class="rounded-2xl border border-white/10 bg-gray-900 p-8">
-          <p class="text-sm font-semibold text-blue-400 mb-6" data-i18n="export_section_label">PDF-Export</p>
+          <p class="text-sm font-semibold text-blue-400 mb-6" data-i18n="export_section_label">Export</p>
+          <div class="space-y-5 mb-6">
+            <div class="flex items-start gap-4 pb-5 border-b border-white/5">
+              <div class="size-9 rounded-xl bg-blue-400/15 flex items-center justify-center shrink-0"><svg class="size-4 text-blue-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.5 2A1.5 1.5 0 0 0 3 3.5v13A1.5 1.5 0 0 0 4.5 18h11a1.5 1.5 0 0 0 1.5-1.5V7.621a1.5 1.5 0 0 0-.44-1.06l-4.12-4.122A1.5 1.5 0 0 0 11.378 2H4.5Z" clip-rule="evenodd"/></svg></div>
+              <div><h3 class="font-semibold text-white mb-1" data-i18n="export_csv_title">CSV-Export</h3><p class="text-sm text-gray-400" data-i18n="export_csv_desc">Den vollständigen Kanalplan als semikolon-getrennte CSV-Datei exportieren — für Excel, Archivierung oder den Import in andere Systeme.</p></div>
+            </div>
+          </div>
+          <p class="text-sm font-medium text-white mb-3" data-i18n="export_pdf_label">PDF-Export</p>
           <p class="text-sm text-gray-400 mb-6" data-i18n="export_desc">Mit einem Klick einen vollständigen, druckfertigen Bericht generieren — für die Bühne, die Technikabteilung oder die Produzentenmappe.</p>
           <div class="rounded-xl border border-white/10 bg-gray-950/60 divide-y divide-white/5 text-sm">
             <div class="px-4 py-3 flex items-center gap-3"><svg class="size-4 text-blue-400 shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"/></svg><div><span class="text-white font-medium" data-i18n="export_cover">Titelseite</span><span class="text-gray-500 ml-2 text-xs" data-i18n="export_cover_sub">Produktionsname, Datum, Spielstätte</span></div></div>
