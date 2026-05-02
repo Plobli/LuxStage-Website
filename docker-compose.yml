@@ -1,0 +1,15 @@
+services:
+  luxstage:
+    build: .
+    container_name: luxstage-website
+    expose:
+      - "80"
+    volumes:
+      - .:/usr/share/nginx/html
+    networks:
+      - web
+    restart: unless-stopped
+
+networks:
+  web:
+    external: true
