@@ -4,32 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LuxStage – Beleuchtungsmanagement für Theater</title>
-  <meta name="description" content="LuxStage ist die professionelle App für Beleuchtungsplanung und Kanalverwaltung im Theater. Native iOS-App und Web-App, EOS-Import, PDF-Export und Echtzeit-Sync." />
+  <meta name="description" content="LuxStage ist die professionelle App für Beleuchtungsplanung und Kanalverwaltung im Theater. Als gehosteter Service sofort startklar oder selbst gehostet. Native iOS-App und Web-App, EOS-Import, PDF-Export und Echtzeit-Sync." />
   <link rel="icon" href="logo.png" />
-  <script src="tailwind.js"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            accent: '#e35d3c',
-          },
-          fontFamily: {
-            sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'system-ui', 'sans-serif'],
-          },
-        }
-      }
-    }
-  </script>
-  <style>
-    .logo-glow { text-shadow: 0 0 60px rgba(227, 93, 60, 0.35); }
-    .grid-bg {
-      background-image:
-        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-      background-size: 64px 64px;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body class="bg-gray-950 text-white font-sans antialiased">
 
@@ -54,12 +31,12 @@
         </h1>
 
         <p class="mt-6 text-lg text-gray-400 text-balance max-w-xl" data-i18n="hero_description">
-          LuxStage ist die App für Beleuchtungsplanung im Theater — als native iOS-App und als Web-App. Kanalverwaltung, EOS-Import, PDF-Export und Echtzeit-Sync, selbst gehostet in deinem Theaternetz.
+          LuxStage ist die App für Beleuchtungsplanung im Theater — als native iOS-App und als Web-App. Kanalverwaltung, EOS-Import, PDF-Export und Echtzeit-Sync. Sofort startklar als gehosteter Service, oder selbst gehostet in deinem Theaternetz.
         </p>
 
         <div class="mt-10 flex flex-wrap items-center gap-4">
-          <a href="#apps" class="inline-flex items-center rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-white hover:bg-accent/90 transition-colors shadow-lg shadow-accent/20">
-            <span data-i18n="hero_cta_apps">Apps entdecken</span>
+          <a href="https://luxstage.app/register" class="inline-flex items-center rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-white hover:bg-accent/90 transition-colors shadow-lg shadow-accent/20">
+            <span data-i18n="hero_cta_apps">Jetzt kostenlos testen</span>
             <svg class="ml-2 size-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" /></svg>
           </a>
           <a href="#features" class="inline-flex items-center rounded-lg border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10 transition-colors" data-i18n="hero_cta_features">
@@ -70,8 +47,8 @@
         <!-- Platform badges -->
         <div class="mt-10 flex items-center gap-4">
           <div class="flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-2">
-            <svg class="size-4 text-gray-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.25 2A2.25 2.25 0 0 0 2 4.25v11.5A2.25 2.25 0 0 0 4.25 18h11.5A2.25 2.25 0 0 0 18 15.75V4.25A2.25 2.25 0 0 0 15.75 2H4.25Zm4.03 6.28a.75.75 0 0 0-1.06-1.06L4.97 9.47a.75.75 0 0 0 0 1.06l2.25 2.25a.75.75 0 0 0 1.06-1.06L6.56 10l1.72-1.72Zm4.5-1.06a.75.75 0 1 0-1.06 1.06L13.44 10l-1.72 1.72a.75.75 0 1 0 1.06 1.06l2.25-2.25a.75.75 0 0 0 0-1.06l-2.25-2.25Z" clip-rule="evenodd"/></svg>
-            <span class="text-xs font-medium text-gray-300">Web-App</span>
+            <svg class="size-4 text-gray-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M11.983 1.907a.75.75 0 0 0-1.292-.657L6.28 6.75H3.75a.75.75 0 0 0-.6 1.2l4.5 6a.75.75 0 0 0 1.383-.302l.72-5.038 2.03-2.336a.75.75 0 0 0 .15-.821l-.95-2.546a.75.75 0 0 0 0 0Z"/><path fill-rule="evenodd" d="M10 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16Zm0 1.5a6.5 6.5 0 1 1 0 13 6.5 6.5 0 0 1 0-13Z" clip-rule="evenodd"/></svg>
+            <span class="text-xs font-medium text-gray-300" data-i18n="badge_saas">Gehosteter Service</span>
           </div>
           <div class="flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-2">
             <svg class="size-4 text-gray-400" viewBox="0 0 20 20" fill="currentColor"><path d="M8 16.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"/><path fill-rule="evenodd" d="M4 4a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V4Zm4-1.5v.75c0 .414.336.75.75.75h2.5a.75.75 0 0 0 .75-.75V2.5h1A1.5 1.5 0 0 1 14.5 4v12a1.5 1.5 0 0 1-1.5 1.5H7A1.5 1.5 0 0 1 5.5 16V4A1.5 1.5 0 0 1 7 2.5h1Z" clip-rule="evenodd"/></svg>
@@ -79,7 +56,7 @@
           </div>
           <div class="flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-2">
             <svg class="size-4 text-gray-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M1 6.25A2.25 2.25 0 0 1 3.25 4h13.5A2.25 2.25 0 0 1 19 6.25v7.5A2.25 2.25 0 0 1 16.75 16H3.25A2.25 2.25 0 0 1 1 13.75v-7.5Zm2.25-.75a.75.75 0 0 0-.75.75v7.5c0 .414.336.75.75.75h13.5a.75.75 0 0 0 .75-.75v-7.5a.75.75 0 0 0-.75-.75H3.25Z" clip-rule="evenodd"/><path d="M6.25 18.25a.75.75 0 0 0 0 1.5h7.5a.75.75 0 0 0 0-1.5h-7.5ZM8.5 17.5a.75.75 0 0 1 .75-.75h1.5a.75.75 0 0 1 0 1.5h-1.5a.75.75 0 0 1-.75-.75Z"/></svg>
-            <span class="text-xs font-medium text-gray-300">Self-hosted</span>
+            <span class="text-xs font-medium text-gray-300" data-i18n="badge_selfhosted">Oder: Self-hosted</span>
           </div>
         </div>
       </div>
@@ -157,11 +134,11 @@
                 <h3 class="text-xl font-semibold text-white" data-i18n="web_title">LuxStage im Browser</h3>
               </div>
             </div>
-            <p class="text-gray-400 mb-6" data-i18n="web_description">Die Web-Anwendung läuft im Browser auf Mac, Windows, iPad oder jedem anderen Gerät. Die Installation des selbstgehosteten Servers erfolgt mit nur zwei Befehlen — keine komplizierten Setup-Prozesse.</p>
+            <p class="text-gray-400 mb-6" data-i18n="web_description">Die Web-Anwendung läuft im Browser auf Mac, Windows, iPad oder jedem anderen Gerät. Als gehosteter Service in Sekunden startklar — oder wahlweise selbst gehostet mit nur zwei Befehlen.</p>
             <ul class="space-y-3 mb-8">
               <li class="flex items-center gap-3 text-sm text-gray-300">
                 <svg class="size-4 text-blue-400 shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"/></svg>
-                <span data-i18n="web_feat1">Installation mit zwei Befehlen z.B. auf einem Raspberry Pi 4.</span>
+                <span data-i18n="web_feat1">Registrieren & sofort loslegen — kein eigener Server nötig</span>
               </li>
               <li class="flex items-center gap-3 text-sm text-gray-300">
                 <svg class="size-4 text-blue-400 shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd"/></svg>
@@ -176,10 +153,16 @@
                 <span data-i18n="web_feat4">Benutzerverwaltung & Rollen</span>
               </li>
             </ul>
-            <a href="https://docs.luxstage.app/de/guide/installation.html" data-i18n-href-guide="installation" class="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-gray-400 hover:bg-white/10 hover:text-white transition-colors">
-              <svg class="size-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.25 5A2.25 2.25 0 0 1 6.5 2.75h7a2.25 2.25 0 0 1 2.25 2.25v10a2.25 2.25 0 0 1-2.25 2.25h-7A2.25 2.25 0 0 1 4.25 15V5Zm2.5.75A.75.75 0 0 1 7.5 5h5a.75.75 0 0 1 0 1.5h-5a.75.75 0 0 1-.75-.75Zm0 3a.75.75 0 0 1 .75-.75h5a.75.75 0 0 1 0 1.5h-5a.75.75 0 0 1-.75-.75Zm0 3a.75.75 0 0 1 .75-.75h5a.75.75 0 0 1 0 1.5h-5a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd"/></svg>
-              <span data-i18n="web_installation">Installation ansehen</span>
-            </a>
+            <div class="flex flex-wrap items-center gap-3">
+              <a href="https://luxstage.app/register" class="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-white hover:bg-accent/90 transition-colors">
+                <span data-i18n="web_cta_saas">Kostenlos testen</span>
+                <svg class="size-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd"/></svg>
+              </a>
+              <a href="https://docs.luxstage.app/de/guide/installation.html" data-i18n-href-guide="installation" class="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-gray-400 hover:bg-white/10 hover:text-white transition-colors">
+                <svg class="size-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.25 5A2.25 2.25 0 0 1 6.5 2.75h7a2.25 2.25 0 0 1 2.25 2.25v10a2.25 2.25 0 0 1-2.25 2.25h-7A2.25 2.25 0 0 1 4.25 15V5Zm2.5.75A.75.75 0 0 1 7.5 5h5a.75.75 0 0 1 0 1.5h-5a.75.75 0 0 1-.75-.75Zm0 3a.75.75 0 0 1 .75-.75h5a.75.75 0 0 1 0 1.5h-5a.75.75 0 0 1-.75-.75Zm0 3a.75.75 0 0 1 .75-.75h5a.75.75 0 0 1 0 1.5h-5a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd"/></svg>
+                <span data-i18n="web_installation">Oder selbst hosten</span>
+              </a>
+            </div>
           </div>
         </div>
 
@@ -559,7 +542,7 @@
         </div>
         <div class="border-b border-white/10 pb-6">
           <dt class="font-semibold text-white mb-2" data-i18n="faq_q3">Wie wird LuxStage betrieben?</dt>
-          <dd class="text-sm text-gray-400" data-i18n="faq_a3">LuxStage läuft als selbst gehosteter Server – z. B. auf einem Raspberry Pi im lokalen Theaternetz. Keine Cloud, keine Abhängigkeit von Drittanbietern, keine laufenden Kosten.</dd>
+          <dd class="text-sm text-gray-400" data-i18n="faq_a3">Am einfachsten als gehosteter Service unter luxstage.app — registrieren und sofort loslegen, ganz ohne eigenen Server. Wer lieber volle Kontrolle behält, hostet LuxStage selbst, z. B. auf einem Raspberry Pi im lokalen Theaternetz oder einem eigenen VPS.</dd>
         </div>
         <div class="border-b border-white/10 pb-6">
           <dt class="font-semibold text-white mb-2" data-i18n="faq_q4">Funktioniert LuxStage auch offline?</dt>
@@ -583,11 +566,17 @@
         <div class="relative">
           <p class="text-sm font-semibold text-accent mb-4" data-i18n="cta_label">Interesse?</p>
           <h2 class="text-4xl sm:text-5xl font-semibold tracking-tight text-balance mb-6" data-i18n="cta_headline">LuxStage für dein Theater</h2>
-          <p class="text-gray-400 max-w-xl mx-auto mb-10 text-balance" data-i18n="cta_description">LuxStage ist Open Source und selbst gehostet. Für Fragen, Feedback oder einen gemeinsamen Austausch — meld dich gerne.</p>
-          <a href="mailto:hallo@luxstage.app" class="inline-flex items-center rounded-lg bg-accent px-8 py-3.5 text-sm font-semibold text-white hover:bg-accent/90 transition-colors shadow-lg shadow-accent/20">
-            <span data-i18n="cta_button">Schreib uns</span>
-            <svg class="ml-2 size-4" viewBox="0 0 20 20" fill="currentColor"><path d="M3 4a2 2 0 0 0-2 2v1.161l8.441 4.221a1.25 1.25 0 0 0 1.118 0L19 7.162V6a2 2 0 0 0-2-2H3Z"/><path d="m19 8.839-7.77 3.885a2.75 2.75 0 0 1-2.46 0L1 8.839V14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.839Z"/></svg>
-          </a>
+          <p class="text-gray-400 max-w-xl mx-auto mb-10 text-balance" data-i18n="cta_description">Starte als gehosteter Service auf luxstage.app — oder betreibe LuxStage selbst, ganz wie du möchtest. LuxStage ist Open Source.</p>
+          <div class="flex flex-wrap items-center justify-center gap-4">
+            <a href="https://luxstage.app/register" class="inline-flex items-center rounded-lg bg-accent px-8 py-3.5 text-sm font-semibold text-white hover:bg-accent/90 transition-colors shadow-lg shadow-accent/20">
+              <span data-i18n="cta_button">Jetzt kostenlos testen</span>
+              <svg class="ml-2 size-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd"/></svg>
+            </a>
+            <a href="mailto:hallo@luxstage.app" class="inline-flex items-center rounded-lg border border-white/10 bg-white/5 px-8 py-3.5 text-sm font-semibold text-white hover:bg-white/10 transition-colors">
+              <span data-i18n="cta_button_contact">Schreib uns</span>
+              <svg class="ml-2 size-4" viewBox="0 0 20 20" fill="currentColor"><path d="M3 4a2 2 0 0 0-2 2v1.161l8.441 4.221a1.25 1.25 0 0 0 1.118 0L19 7.162V6a2 2 0 0 0-2-2H3Z"/><path d="m19 8.839-7.77 3.885a2.75 2.75 0 0 1-2.46 0L1 8.839V14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.839Z"/></svg>
+            </a>
+          </div>
         </div>
       </div>
     </div>
