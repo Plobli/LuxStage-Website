@@ -713,6 +713,10 @@ function setLanguage(lang) {
     const key = el.getAttribute('data-i18n-aria');
     if (translations[lang][key] !== undefined) el.setAttribute('aria-label', translations[lang][key]);
   });
+  document.querySelectorAll('[data-i18n-href-guide]').forEach(el => {
+    const page = el.getAttribute('data-i18n-href-guide');
+    el.href = `https://docs.luxstage.app/${lang}/guide/${page}.html`;
+  });
   // Update page title
   const titleKey = document.documentElement.getAttribute('data-i18n-page-title');
   if (titleKey && translations[lang][titleKey]) {
