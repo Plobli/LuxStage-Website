@@ -48,7 +48,7 @@ const translations = {
     features_description: 'Vom Import aus dem Lichtpult bis zum druckfertigen PDF – alle Werkzeuge in einer App.',
 
     feat_channels_title: 'Kanalverwaltung',
-    feat_channels_desc: 'Kanäle nach Position, Kategorie und DMX-Adresse verwalten. Farben, Geräte, Notizen – alles an einem Ort. Mit Drag & Drop sortierbar.',
+    feat_channels_desc: 'Kanäle nach Position und DMX-Adresse verwalten. Farben, Geräte, Notizen – alles an einem Ort. Mit Drag & Drop sortierbar.',
     feat_eos_title: 'EOS-Import',
     feat_eos_desc: 'CSV-Exporte aus ETC EOS direkt importieren. Aktive Kanäle werden automatisch erkannt – in Sekunden übernommen.',
     feat_pdf_title: 'PDF-Export',
@@ -99,7 +99,7 @@ const translations = {
     faq_q3: 'Wie wird LuxStage betrieben?',
     faq_a3: 'Am einfachsten als gehosteter Service unter luxstage.app — registrieren und sofort loslegen, ganz ohne eigenen Server. Wer lieber volle Kontrolle behält, hostet LuxStage selbst, z. B. auf einem Raspberry Pi im lokalen Theaternetz oder einem eigenen VPS.',
     faq_q4: 'Funktioniert LuxStage auch offline?',
-    faq_a4: 'Ja. Sowohl die iOS-App als auch die Web-App zeigen gespeicherte Daten auch ohne aktive Serververbindung an. Änderungen werden synchronisiert, sobald die Verbindung wiederhergestellt ist.',
+    faq_a4: 'Zum Lesen ja. Die iOS-App zeigt zuletzt geladene Shows, Kanäle und Fotos auch ohne Serververbindung an. Alles, was Daten verändert, erfordert eine Verbindung.',
     faq_q5: 'Unterstützt LuxStage mehrere Benutzer?',
     faq_a5: 'Ja. Admins und Techniker können gleichzeitig arbeiten. Änderungen werden in Echtzeit für alle verbundenen Geräte – iOS und Web – synchronisiert.',
 
@@ -432,7 +432,7 @@ const translations = {
     features_description: 'From importing from the lighting desk to print-ready PDF – all tools in one app.',
 
     feat_channels_title: 'Channel Management',
-    feat_channels_desc: 'Manage channels by position, category and DMX address. Colours, fixtures, notes – everything in one place. Sortable with drag & drop.',
+    feat_channels_desc: 'Manage channels by position and DMX address. Colours, fixtures, notes – everything in one place. Sortable with drag & drop.',
     feat_eos_title: 'EOS Import',
     feat_eos_desc: 'Import CSV exports from ETC EOS directly. Active channels are automatically detected – transferred in seconds.',
     feat_pdf_title: 'PDF Export',
@@ -483,7 +483,7 @@ const translations = {
     faq_q3: 'How is LuxStage operated?',
     faq_a3: 'The easiest way is as a hosted service at luxstage.app — sign up and get started instantly, no server required. If you prefer full control, self-host LuxStage instead, e.g. on a Raspberry Pi in your local theatre network or your own VPS.',
     faq_q4: 'Does LuxStage work offline?',
-    faq_a4: 'Yes. Both the iOS app and the web app display saved data even without an active server connection. Changes are synchronised as soon as the connection is restored.',
+    faq_a4: 'For reading yes. The iOS app displays recently loaded shows, channels and photos without a server connection. Anything that changes data requires a connection.',
     faq_q5: 'Does LuxStage support multiple users?',
     faq_a5: 'Yes. Admins and technicians can work simultaneously. Changes are synchronised in real time for all connected devices – iOS and web.',
 
