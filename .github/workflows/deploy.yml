@@ -18,3 +18,4 @@ jobs:
           script: |
             cd /opt/dockge/data/stacks/luxstage-website
             git pull
+            docker compose up -d --build
