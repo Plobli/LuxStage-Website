@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Impressum – LuxStage</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="logo.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-gray-950 text-white font-sans antialiased">
+
+  <div id="nav-container"></div>
+
+  <section class="relative overflow-hidden pt-32 pb-24 grid-bg">
+    <div class="relative mx-auto max-w-3xl px-6 lg:px-8">
+      <h1 class="text-4xl font-semibold tracking-tight text-white mb-10">Impressum</h1>
+
+      <div class="text-gray-400 space-y-8 leading-relaxed">
+
+        <section>
+          <h2 class="text-lg font-semibold text-white mb-2">Angaben gemäß § 5 TMG / § 5 DDG</h2>
+          <p>
+            [NAME / FIRMA]<br/>
+            [STRASSE UND HAUSNUMMER]<br/>
+            [PLZ UND ORT]<br/>
+            [LAND]
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-white mb-2">Kontakt</h2>
+          <p>
+            E-Mail: <a href="mailto:hello@luxstage.app" class="text-accent hover:underline">hello@luxstage.app</a><br/>
+            Telefon: [TELEFONNUMMER, falls vorhanden]
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-white mb-2">Umsatzsteuer-ID</h2>
+          <p>
+            [USt-IdNr. gemäß § 27a UStG, falls vorhanden — sonst Abschnitt entfernen]
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-white mb-2">Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+          <p>
+            [NAME]<br/>
+            [ANSCHRIFT WIE OBEN, FALLS IDENTISCH]
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-white mb-2">Streitschlichtung</h2>
+          <p>
+            Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
+            <a href="https://ec.europa.eu/consumers/odr/" class="text-accent hover:underline" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a>.
+            Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+          </p>
+        </section>
+
+        <section>
+          <p class="text-xs text-gray-600">
+            Diese Seite gilt für die Website luxstage.app sowie den darüber angebotenen gehosteten Dienst.
+            Für Self-Hosting-Installationen von LuxStage ist der jeweilige Betreiber selbst für ein eigenes Impressum verantwortlich.
+          </p>
+        </section>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/5 py-10">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2.5 text-sm text-gray-500">
+        <img src="logo.png" alt="LuxStage" class="size-6 rounded-md opacity-80" />
+        LuxStage
+      </div>
+      <p class="text-xs text-gray-700">Web-App & iOS-App für Beleuchtungsmanagement im Theater</p>
+      <div class="flex items-center gap-4 text-xs text-gray-600">
+        <a href="impressum.html" class="hover:text-gray-400 transition-colors">Impressum</a>
+        <a href="https://docs.luxstage.app/de/datenschutz" class="hover:text-gray-400 transition-colors">Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    fetch('nav.html')
+      .then(response => response.text())
+      .then(html => { document.getElementById('nav-container').innerHTML = html })
+  </script>
+</body>
+</html>

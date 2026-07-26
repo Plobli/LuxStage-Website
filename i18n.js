@@ -112,6 +112,8 @@ const translations = {
 
     // FOOTER
     footer_tagline: 'Web-App & iOS-App für Beleuchtungsmanagement im Theater',
+    footer_impressum: 'Impressum',
+    footer_privacy: 'Datenschutz',
 
     // FEATURES PAGE
     feat_page_badge: 'iOS-App · Web-App · Self-hosted',
@@ -496,6 +498,8 @@ const translations = {
 
     // FOOTER
     footer_tagline: 'Web app & iOS app for lighting management in theatre',
+    footer_impressum: 'Legal Notice',
+    footer_privacy: 'Privacy',
 
     // FEATURES PAGE
     feat_page_badge: 'iOS App · Web App · Self-hosted',
